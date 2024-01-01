@@ -13,10 +13,10 @@ import authRoutes from './routes/auth.route.js';
 dotenv.config();
 connection();
 
-const __dirname= express()
+const __dirname= path.resolve();
 
 const app = express();
-
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
 
 
 
-app.use(cors());
+
 
 app.use(express.json());
 
