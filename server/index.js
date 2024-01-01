@@ -7,12 +7,25 @@ import dotenv from 'dotenv';
 import path from 'path';
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
+import path  from 'path'
+
 
 dotenv.config();
 connection();
 
+const __dirname= express()
 
 const app = express();
+
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+});
+
+
+
 app.use(cors());
 
 app.use(express.json());
