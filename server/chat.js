@@ -51,7 +51,7 @@ exports.chatbotController = async (req, res) => {
   import { GoogleGenerativeAI } from "@google/generative-ai";
 
  async function run() {
-  const genAI = new GoogleGenerativeAI('AIzaSyDWtGcSm2kXwkEu90TPx60cJGzKNGtdYks');
+  const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-pro"});
   
   const prompt ="Some query"
